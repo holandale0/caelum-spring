@@ -1,0 +1,22 @@
+
+COMANDOS - GIT
+
+
+
+
+
+
+COMANDOS SGBD
+
+CONSULTA:
+
+mysql -u root -p
+
+caelum
+
+use casadocodigo
+
+show tables;
+
+select * from tableName
+
