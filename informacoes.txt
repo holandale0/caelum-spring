@@ -1,6 +1,8 @@
 
 COMANDOS - GIT
 
+cd workspace
+
 
 
 

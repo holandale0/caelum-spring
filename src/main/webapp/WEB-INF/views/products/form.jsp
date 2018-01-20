@@ -8,35 +8,46 @@
 </head>
 <body>
 
-<form:form method="post" action="/casadocodigo/products" commandName="product">
+<form:form method="post" action="/casadocodigo/products" commandName="product" enctype="multipart/form-data">
 
 	<div>
-		<label for="titulo">Título</label>
-		<form:input name="titulo" path="titulo"/>
-		<form:errors path="titulo"/>
+		<label for="title">Título</label>
+		<form:input name="title" path="title"/>
+		<form:errors path="title"/>
 	</div>
 	
 	<div>
 		<label for="description">Descrição</label>
-		<form:textarea path="descricao" rows="10" cols="20" id="descricao"/>
-		<form:errors path="descricao"/>
+		<form:textarea path="description" rows="10" cols="20" id="description"/>
+		<form:errors path="description"/>
 		</textarea>
 	</div>
 	
 	<div>
 		<label for="numberOfPages">Número de páginas</label>
-		<form:input name="paginas" path="paginas"/>
-		<form:errors path="paginas"/>
+		<form:input name="numberOfPages" path="numberOfPages"/>
+		<form:errors path="numberOfPages"/>
 	</div>
 	
+	<div>
+		<label for="releaseDate">Data de lançamento</label>
+		<form:input type="date" name="releaseDate" path="releaseDate"/>
+		<form:errors path="releaseDate"/>
+	</div>
+	
+	<div>
+		<label for="summary">Sumario do livro</label>
+		<input type="file" name="summary" />
+		
+	</div>
 
-	<c:forEach items="${tipos}" var="tipoPreco" varStatus="status">
+	<c:forEach items="${prices}" var="price" varStatus="status">
 	
 	<div>
 	
-		<label for="preco_${tipoPreco}">${tipoPreco}</label>
-		<input type="text" name="precos[${status.index}].valor" id="preco_${tipoPreco}" />	
-		<input type="hidden" name="precos[${status.index}].tipo" value="${tipoPreco}" />	
+		<label for="preco_${price}">${price}</label>
+		<input type="text" name="precos[${status.index}].valor" id="preco_${price}" />	
+		<input type="hidden" name="precos[${status.index}].tipo" value="${price}" />	
 	</div>
 	
 	</c:forEach>

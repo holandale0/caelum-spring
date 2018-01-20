@@ -1,6 +1,6 @@
 package br.com.caelum.casadocodigo.loja.enums;
 
-public enum TipoPreco {
+public enum BookType {
 	
 	EBOOK,IMPRESSO,COMBO;
 

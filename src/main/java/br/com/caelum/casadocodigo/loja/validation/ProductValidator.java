@@ -20,13 +20,13 @@ public class ProductValidator implements Validator{
 	@Override
 	public void validate(Object target, Errors errors) {
 		
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "titulo", "field.required");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "descricao", "field.required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "title", "field.required");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "description", "field.required");
 		
 		Product produto = (Product) target;
 		
-		if(Objects.isNull(produto.getPaginas()) || produto.getPaginas() <= 0){
-			errors.rejectValue("paginas", "filed.required");
+		if(Objects.isNull(produto.getNumberOfPages()) || produto.getNumberOfPages() <= 0){
+			errors.rejectValue("numberOfPages", "filed.required");
 		}
 	}
 
