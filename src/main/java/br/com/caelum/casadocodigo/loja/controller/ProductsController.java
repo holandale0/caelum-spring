@@ -69,11 +69,8 @@ public class ProductsController {
 	@RequestMapping(method=RequestMethod.GET) // A PARTIR DA VERSÃO 4.2 DO PRING, NÃO PRECISA ESPECIFICAR 
 	public ModelAndView listarTodos(){		
 		ModelAndView mav = new ModelAndView("products/list");
-		System.out.println("tamanho: " + dao.list().size());
-		List<Product> produtos = dao.list();
+		List<Product> produtos = dao.listarTodos();
 		mav.addObject("products", produtos);
-		//Product produto = dao.findById(1);
-		//System.out.println("Produto "+produto.getTitle());
 		return mav;
 		
 	}

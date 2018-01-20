@@ -8,18 +8,22 @@ import org.springframework.format.datetime.DateFormatter;
 import org.springframework.format.datetime.DateFormatterRegistrar;
 import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.format.support.FormattingConversionService;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import br.com.caelum.casadocodigo.loja.controller.HomeController;
 import br.com.caelum.casadocodigo.loja.dao.ProductDAO;
 import br.com.caelum.casadocodigo.loja.infra.FileSaver;
+import br.com.caelum.casadocodigo.loja.model.ShoppingCart;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses={HomeController.class, ProductDAO.class, FileSaver.class})
-public class AppWebConfiguration {
+@ComponentScan(basePackageClasses={HomeController.class, ProductDAO.class, FileSaver.class, ShoppingCart.class})
+public class AppWebConfiguration extends WebMvcConfigurerAdapter{
 	
 	@Bean
 	public InternalResourceViewResolver internalResourceViewResolver(){
@@ -27,6 +31,7 @@ public class AppWebConfiguration {
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
 		resolver.setPrefix("/WEB-INF/views/");
 		resolver.setSuffix(".jsp");
+		resolver.setExposedContextBeanNames("shoppingCart");
 		return resolver;
 	}
 	
@@ -52,6 +57,16 @@ public class AppWebConfiguration {
 	@Bean
 	public MultipartResolver multipartResolver(){
 		return new StandardServletMultipartResolver();
+	}
+	
+	@Override
+	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer){
+		configurer.enable();
+	}
+	
+	@Bean
+	public RestTemplate restTemplate(){
+		return new RestTemplate();
 	}
 
 }

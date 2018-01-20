@@ -18,6 +18,8 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import br.com.caelum.casadocodigo.loja.enums.BookType;
+
 @Entity
 public class Product {
 	
@@ -123,7 +125,9 @@ public class Product {
 		return "Product [title=" + title + ", numberOfPages=" + numberOfPages + ", description=" + description + "]";
 	}
 	
-	
+	public BigDecimal priceFor(BookType bookType){
+		return prices.stream().filter(price -> price.getBookType().equals(bookType)).findFirst().get().getValue();
+	}
 
 	
 	

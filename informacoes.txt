@@ -1,7 +1,19 @@
 
 COMANDOS - GIT
 
-cd workspace
+cd /home/spring7310/27/casadocodigo
+
+git status
+
+git add .
+
+git commit -m "aulaxx"
+
+git push origin master
+
+usuario
+
+senha
 
 
 

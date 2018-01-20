@@ -46,8 +46,8 @@
 	<div>
 	
 		<label for="preco_${price}">${price}</label>
-		<input type="text" name="precos[${status.index}].valor" id="preco_${price}" />	
-		<input type="hidden" name="precos[${status.index}].tipo" value="${price}" />	
+		<input type="text" name="prices[${status.index}].value" id="preco_${price}" />	
+		<input type="hidden" name="prices[${status.index}].bookType" value="${price}" />	
 	</div>
 	
 	</c:forEach>

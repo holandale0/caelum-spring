@@ -10,7 +10,6 @@
 <body>
 
 ${sucess}
-${products}
 <table>
 <tr>
 	<td>TÍTULO </td>
@@ -22,12 +21,11 @@ ${products}
 <c:forEach items="${products}" var="product">
 <tr> 
 	<td>
-	
+	<a href="/casadocodigo/products/${product.id}">
 	${product.title} 
-	
+	</a>
 	
 	</td>
-	
 	
 	
 	<td>${product.description} </td>
