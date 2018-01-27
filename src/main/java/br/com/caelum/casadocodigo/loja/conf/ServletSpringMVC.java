@@ -1,7 +1,6 @@
 package br.com.caelum.casadocodigo.loja.conf;
 
 
-import javax.servlet.FilterRegistration.Dynamic;
 import javax.servlet.MultipartConfigElement;
 
 
@@ -14,19 +13,19 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return new Class[]{SecurityConfiguration.class,AppWebConfiguration.class,JpaConfiguration.class};
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		// TODO Auto-generated method stub
-		return new Class[]{AppWebConfiguration.class , JpaConfiguration.class}; //
+		
+		return new Class[]{}; //
 	}
 
 	@Override
 	protected String[] getServletMappings() {
-		// TODO Auto-generated method stub
+		
 		return new String[]{"/"};
 	}
 	

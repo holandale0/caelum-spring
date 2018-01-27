@@ -15,7 +15,6 @@ ${sucess}
 	<td>TÍTULO </td>
 	<td>DESCRIÇÃO </td>
 	<td>PREÇO </td>
-	<td>LANÇAMENTO </td>
 </tr>
 
 <c:forEach items="${products}" var="product">
@@ -27,9 +26,8 @@ ${sucess}
 	
 	</td>
 	
-	
 	<td>${product.description} </td>
-	<td>${product.releaseDate} </td>
+	
 	<td>
 	<c:forEach items="${product.prices}" var="price">
 	[${price.bookType} - ${price.value}]

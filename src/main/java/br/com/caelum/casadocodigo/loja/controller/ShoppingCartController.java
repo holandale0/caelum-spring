@@ -57,6 +57,8 @@ public class ShoppingCartController {
 		
 		String uriToPay = "http://book-payment.herokuapp.com/payment";
 		
+		shoppingCart.clear();
+		
 		try{
 			
 			String response = restTemplate.postForObject(uriToPay, new PaymentData(total), String.class);
