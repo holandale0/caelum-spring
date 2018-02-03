@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 @EnableTransactionManagement
-public class JpaConfiguration {
+public class JpaConfigurationTest {
 	
 	@Bean
 	public PlatformTransactionManager transactionManager(EntityManagerFactory emf){
@@ -41,20 +41,19 @@ public class JpaConfiguration {
 		return em;
 	}
 	
+	
 	@Bean
-	@Profile("dev")
+	@Profile("test")
 	public DataSource dataSource(){
 		
 		DriverManagerDataSource ds = new DriverManagerDataSource();
 		ds.setDriverClassName("com.mysql.jdbc.Driver");
-		ds.setUrl("jdbc:mysql://localhost:3306/casadocodigo");
+		ds.setUrl("jdbc:mysql://localhost:3306/casadocodigo_test");
 		ds.setUsername("root");
 		ds.setPassword("caelum");
 		
 		return ds;
 	}
-	
-
 	
 	private Properties aditionalProperties(){
 		
